@@ -290,7 +290,7 @@
                 <div id="nasabahAdd" class="content-section">
                     <h1>Tambah Nasabah Baru</h1>
                     <div class="card">
-                        <form class="form-nasabah">
+                        <form class="form-nasabah" id="uploadForm" onsubmit="alert('Formulir berhasil disubmit'); window.location.href = 'dashboard.html'; return false;">
                             <div class="form-group">
                                 <label for="namaLengkap">Nama Lengkap:</label>
                                 <input type="text" id="namaLengkap" required placeholder="Isi Nama Lengkap Sesuai KTP">
@@ -376,3 +376,4 @@
 </body>
 
 </html>
+

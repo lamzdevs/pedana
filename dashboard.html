@@ -321,7 +321,7 @@
                 <div id="dokumenUpload" class="content-section">
                     <h1>Unggah Dokumen Baru</h1>
                     <div class="card" style="position: relative;">
-                        <form class="form-dokumen" id="uploadForm" onsubmit="alert('Formulir berhasil disubmit'); return false;">
+                        <form class="form-dokumen" id="uploadForm" onsubmit="alert('Formulir berhasil disubmit'); window.location.href = 'dashboard.html'; return false;">
                             <div class="form-group nasabah-group">
                                 <label for="nasabahID">Pilih Nasabah (ID/Nama):</label>
                                 <input type="text" id="nasabahID" list="nasabah-list" placeholder="Pilih atau ketik Nasabah" required>
@@ -374,4 +374,5 @@
             <script src="no-rek.js"></script>
             <script src="nama-lengkap.js"></script>
 </body>
+
 </html>

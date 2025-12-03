@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedana Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <div class="nav-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="dashboard.html"><img src="logo dashboard/logo-pedana-02.png" alt="Logo Pedana"></a>
+            </div>
+            
+            <!-- Menu Sidebar -->
+            <nav class="sidebar-nav">
+                <ul><li><a href="#" class="menu-link" data-target="dashboardSection"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-nasabah" class="toggle-menu">
+                        <label for="menu-nasabah" class="menu-label">
+                            <i class="fa-solid fa-users"></i><span class="arrow"></span> Nasabah</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="nasabahList"><i class="fa-solid fa-list"></i> Daftar Nasabah</a></li>
+                                <li><a href="#" class="menu-link" data-target="nasabahAdd"><i class="fa-solid fa-square-plus"></i> Tambah Nasabah Baru</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-dokumen" class="toggle-menu">
+                        <label for="menu-dokumen" class="menu-label">
+                            <i class="fa-solid fa-folder"></i><span class="arrow"></span> Dokumen</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="dokumenUpload"><i class="fa-solid fa-upload"></i> Unggah Dokumen Baru</a></li>
+                                <li><a href="#" class="menu-link" data-target="dokumenMasuk"><i class="fa-solid fa-inbox"></i> Dokumen Masuk</a></li>
+                                <li><a href="#" class="menu-link" data-target="dokumenArsip"><i class="fa-solid fa-box-archive"></i> Arsip Dokumen</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-laporan" class="toggle-menu">
+                        <label for="menu-laporan" class="menu-label">
+                            <i class="fa-solid fa-chart-column"></i><span class="arrow"></span> Laporan</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="laporanAnalisis"><i class="fa-solid fa-chart-line"></i> Laporan & Analisis</a></li>
+                                <li><a href="#" class="menu-link" data-target="laporanDokumen"><i class="fa-solid fa-file-lines"></i> Laporan Dokumen</a></li>          
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-manajemen" class="toggle-menu">
+                        <label for="menu-manajemen" class="menu-label">
+                            <i class="fa-solid fa-bars-progress"></i><span class="arrow"></span> Manajemen Pengguna</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="roleSection"><i class="fa-solid fa-user-shield"></i> Role</a></li>
+                                <li><a href="#" class="menu-link" data-target="permissionSection"><i class="fa-solid fa-lock"></i> Permission</a></li>
+                                <li><a href="#" class="menu-link" data-target="statusAkunSection"><i class="fa-solid fa-user-check"></i> Status Akun</a></li>
+                                <li><a href="#" class="menu-link" data-target="logAktivitasSection"><i class="fa-solid fa-clock-rotate-left"></i> Log Aktivitas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="log-out">
+                <a href="index.html" onclick="return confirm('Yakin bray?')">
+                    <i class="fas fa-sign-out-alt"></i> Log out</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Header Navbar -->
+            <header class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+                <div class="user-profile">
+                    <i class="fa-regular fa-envelope"></i>
+                    <i class="fa-regular fa-bell"></i>
+                    <div class="profile-avatar">
+                        <img src="img/user_02.png" alt="profile">
+                    </div>
+                    <div class="user-info">
+                        <div class="name">Username Here</div>
+                        <div class="email">emailuser@example.com</div>
+                    </div>
+                </div>
+            </header>
+            
+        <!-- Dashboard Menu -->
+        <div id="dashboardSection" class="content-section active">
+            <h1>Dashboard Utama</h1>
+                <div class="metric-cards">
+                    <div class="card metric-card total-nasabah">
+                        <i class="fa-solid fa-users"></i>
+                        <div class="card-info">
+                            <div class="value">12,450</div>
+                            <div class="label">Total Nasabah Aktif</div>
+                        </div> 
+                    </div>
+                    <div class="card metric-card new-entries">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <div class="card-info">
+                            <div class="value">230</div>
+                            <div class="label">Entri Nasabah Bulan Ini</div>
+                        </div>
+                    </div>
+                    <div class="card metric-card doc-pending">
+                        <i class="fa-solid fa-file-circle-exclamation"></i>
+                        <div class="card-info">
+                            <div class="value">45</div>
+                            <div class="label">Dokumen Pending</div>
+                        </div>
+                    </div>
+                    <div class="card metric-card doc-error">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div class="card-info">
+                            <div class="value">8</div>
+                            <div class="label">Dokumen Belum Lengkap</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-area">
+                <div class="card chart-card">
+                    <h2>Tren Entri Data Tahunan</h2>
+                    <div class="chart-placeholder">Area Grafik akan muncul di sini (misalnya Bar Chart)</div>
+                </div>
+                <div class="card activity-card">
+                    <h2>Aktivitas Terbaru</h2>
+                    <ul class="activity-list">
+                        <li><span class="user-name">Supervisor A</span> memverifikasi Dokumen ID (Nasabah 456).</li>
+                        <li><span class="user-name">Staf B</span> menambahkan Nasabah Baru (ID 7890).</li>
+                        <li><span class="user-name">Admin C</span> mengubah hak akses (User X).</li>
+                        <li><span class="user-name">Staf D</span> mengunggah 5 dokumen ke arsip.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            <section id="content-area">
+                <!-- Daftar Nasabah -->
+                <div id="nasabahList" class="content-section">
+                    <h1>Daftar Nasabah</h1>
+                    <div class="card">
+                        <table class="customer-list-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">No</th>
+                                    <th style="text-align: center;">Tanggal Arsip</th>
+                                    <th style="text-align: center;">No Arsip</th>
+                                    <th style="text-align: center;">Nama Lengkap</th>
+                                    <th style="text-align: center;">Nomor Rekening</th>
+                                    <th style="text-align: center;">Jenis Akun</th>
+                                    <th style="text-align: center;">Status Data</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td style="text-align: center;">15/11/2025</td>
+                                        <td style="text-align: center;">ARS-00123</td>
+                                        <td>Budi Santoso</td> <td>9876-5678-9012</td> <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td style="text-align: center;">15/11/2025</td>
+                                        <td style="text-align: center;">ARS-00124</td>
+                                        <td>Siti Aminah</td>
+                                        <td>1234-9876-9021</td>
+                                        <td style="text-align: center;">Giro</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">3</td>
+                                        <td style="text-align: center;">16/11/2025</td>
+                                        <td style="text-align: center;">ARS-00125</td>
+                                        <td>Dewi Kartika</td>
+                                        <td>8024-1357-9246</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-inactive">Tidak Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">4</td>
+                                        <td style="text-align: center;">17/11/2025</td>
+                                        <td style="text-align: center;">ARS-00126</td>
+                                        <td>Ahmad Ramadhan</td>
+                                        <td>4321-0987-6543</td>
+                                        <td style="text-align: center;">Giro</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">5</td>
+                                        <td style="text-align: center;">17/11/2025</td>
+                                        <td style="text-align: center;">ARS-00127</td>
+                                        <td>Rina Melati</td>
+                                        <td>7777-1111-2222</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">6</td>
+                                        <td style="text-align: center;">18/11/2025</td>
+                                        <td style="text-align: center;">ARS-00128</td>
+                                        <td>Joko Susilo</td>
+                                        <td>3030-4040-5050</td>
+                                        <td style="text-align: center;">Deposito</td>
+                                        <td style="text-align: center;" class="status-inactive">Tidak Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">7</td>
+                                        <td style="text-align: center;">18/11/2025</td>
+                                        <td style="text-align: center;">ARS-00129</td>
+                                        <td>Maya Sari</td>
+                                        <td>9988-7766-5544</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">8</td>
+                                        <td style="text-align: center;">19/11/2025</td>
+                                        <td style="text-align: center;">ARS-00130</td>
+                                        <td>Faisal Hakim</td>
+                                        <td>1010-2020-3030</td>
+                                        <td style="text-align: center;">Giro</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">9</td>
+                                        <td style="text-align: center;">19/11/2025</td>
+                                        <td style="text-align: center;">ARS-00131</td>
+                                        <td>Nia Kurniawan</td>
+                                        <td>5432-1098-7654</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-inactive">Tidak Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">10</td>
+                                        <td style="text-align: center;">20/11/2025</td>
+                                        <td style="text-align: center;">ARS-00132</td>
+                                        <td>Eko Prasetyo</td>
+                                        <td>6060-7070-8080</td>
+                                        <td style="text-align: center;">Deposito</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style="text-align: center;"><button class="action-btn">Lihat</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination-container" id="paginationControls">
+                                <a href="#" class="pagination-arrow" id="prevPage" data-direction="prev">&lt;</a>
+                                <a href="#" class="pagination-link active">1</a>
+                                <a href="#" class="pagination-link">2</a>
+                                <a href="#" class="pagination-link">3</a>
+                                <a href="#" class="pagination-link">4</a>
+                                <a href="#" class="pagination-link">5</a>
+                                <a href="#" class="pagination-link">6</a>
+                                <span class="pagination-ellipsis">...</span>
+                                <a href="#" class="pagination-link">25</a>
+                                <a href="#" class="pagination-arrow" id="nextPage" data-direction="next">&gt;</a>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Tambah Nasabah -->
+                <div id="nasabahAdd" class="content-section">
+                    <h1>Tambah Nasabah Baru</h1>
+                    <div class="card">
+                        <form class="form-nasabah">
+                            <div class="form-group">
+                                <label for="namaLengkap">Nama Lengkap:</label>
+                                <input type="text" id="namaLengkap" required placeholder="Isi Nama Lengkap Sesuai KTP">
+                            </div>
+                            <div class="form-group">
+                                <label for="jenisAkun">Jenis Akun:</label>
+                                <select id="jenisAkun" required>
+                                    <option value="">Pilih Jenis Akun</option>
+                                    <option value="Tabungan">Tabungan</option>
+                                    <option value="Giro">Giro</option>
+                                    <option value="Deposito">Deposito</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="noRekening">Nomor Rekening:</label>
+                                <input type="text" id="noRekening" required placeholder="Masukkan 15 Digit Nomor Rekening">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggalArsip">Tanggal Arsip:</label>
+                                <input type="date" id="tanggalArsip" required>
+                            </div>
+                            <button type="submit" class="submit-btn">Simpan Data Nasabah</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Unggah Dokumen Baru -->
+                <div id="dokumenUpload" class="content-section">
+                    <h1>Unggah Dokumen Baru</h1>
+                    <div class="card" style="position: relative;">
+                        <form class="form-dokumen" id="uploadForm" onsubmit="alert('Formulir berhasil disubmit'); return false;">
+                            <div class="form-group nasabah-group">
+                                <label for="nasabahID">Pilih Nasabah (ID/Nama):</label>
+                                <input type="text" id="nasabahID" list="nasabah-list" placeholder="Pilih atau ketik Nasabah" required>
+                                <datalist id="nasabah-list">
+                                    <option value="Budi Santoso (ARS-00123)"></option>
+                                    <option value="Siti Aminah (ARS-00124)"></option>
+                                    <option value="Ahmad Ramadhan (ARS-00126)"></option>
+                                    <option value="Rina Melati (ARS-00127)"></option>
+                                    <option value="Maya Sari (ARS-00129)"></option>
+                                </datalist>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="fileKTP">Kartu Tanda Penduduk (KTP):</label>
+                                <input type="file" id="fileKTP" accept=".pdf,.jpg,.jpeg,.png"> 
+                            </div>
+                            <div class="form-group">
+                                <label for="fileKK">Kartu Keluarga (KK):</label>
+                                <input type="file" id="fileKK" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileNPWP">Nomor Pokok Wajib Pajak (NPWP):</label>
+                                <input type="file" id="fileNPWP" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileBukuTabungan">Fotokopi Buku Tabungan:</label>
+                                <input type="file" id="fileBukuTabungan" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileSlipGaji">Surat Keterangan Penghasilan:</label>
+                                <input type="file" id="fileSlipGaji" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileSKKerja">Surat Keterangan Kerja:</label>
+                                <input type="file" id="fileSKKerja" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="filePasFoto">Pas Foto Suami/Istri (Bagi sudah menikah):</label>
+                                <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Unggah Dokumen</button>
+                        </form>
+                    </div>
+                </div>
+        
+            </section>
+        </main>
+            <script src="menu.js"></script>
+            <script src="no-rek.js"></script>
+            <script src="nama-lengkap.js"></script>
+</body>
+</html>

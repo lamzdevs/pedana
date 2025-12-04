@@ -875,12 +875,11 @@ body {
 
 .form-group input[type="file"]::-webkit-file-upload-button:hover {
     background-color: #ced4da;
-
 }
 
 
 /* =========================================================================================================================== */
-/* Dokumen Masuk Nasabah */
+/* Dokumen Masuk */
 #dokumenMasuk h1 {
     font-size: 1.8em;
     color: var(--text-color);
@@ -938,7 +937,6 @@ body {
 
 .data-table tbody tr:last-child td {
     border-bottom: none; 
-    text-align: center;
 }
 
 .data-table tbody tr:hover {
@@ -1004,7 +1002,6 @@ body {
     color: var(--status-inactive);
     border: 1px solid var(--status-inactive);
 }
-
 
 /* =========================================================================================================================== *//* Gaya untuk Bagian Arsip Dokumen */
 /* Arsip Dokumen */

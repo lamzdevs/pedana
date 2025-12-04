@@ -6,12 +6,12 @@
     --vivid-sky-blue: #48CAE4;
     --lavender-blush: #EEE5E9;
     --dark: #333333;
-    --light: #f0f0f0;
-    --status-pending: #ffc107;
-    --status-active: #28a745;
-    --status-on-sale: #007bff;
-    --status-inactive: #dc3545;
-    --status-bouncing: #6f42c1;
+    --light: #F0F0F0;
+    --status-pending: #FFC107;
+    --status-active: #28A745;
+    --status-on-sale: #007BFF;
+    --status-inactive: #DC3545;
+    --status-bouncing: #6F42C1;
     --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -350,7 +350,7 @@ body {
 
 .metric-card .label {
     font-size: 10px;
-    color: #60686f;
+    color: #60686F;
 }
 
 /* Pewarnaan Garis Status/Tipe Kartu */
@@ -371,10 +371,61 @@ body {
     gap: 25px;
 }
 
-/* Menggunakan Flex Grow untuk rasio 2:1 */
 .chart-card {
     flex: 2; 
     padding: 30px;
+}
+
+.barchart-container {
+    width: 100%;
+    max-width: 600px;
+    height: 250px; 
+    margin: 20px auto;
+    border-left: 1px solid black; 
+    border-bottom: 1px solid black; 
+}
+
+.chart {
+    height: 100%;
+    display: flex; 
+    align-items: flex-end; 
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.bar.color-1 {
+    background-color: #023E8A; 
+}
+
+.bar.color-2 {
+    background-color: #28a745;
+}
+
+.bar.color-3 {
+    background-color: #ffc107; 
+}
+
+.bar.color-4 {
+    background-color: #dc3545;
+}
+
+.bar {
+    width: 15%; 
+    margin: 0 5px;
+    position: relative;
+    transition: height 0.5s ease-out;
+}
+
+.bar span {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
 }
 
 .activity-card {
@@ -397,7 +448,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6c757d;
+    color: #6C757D;
     border-radius: 6px;
     font-size: 14px;
 }
@@ -471,7 +522,7 @@ body {
 
 .search-archive-input {
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #CED4DA;
     border-radius: 4px;
     width: 250px;
     margin: 0 20px 20px 20px; 
@@ -482,7 +533,7 @@ body {
 .card > .search-input-container { 
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     border-radius: 4px;
     width: 300px; 
 }
@@ -501,20 +552,12 @@ body {
     text-align: left;
     padding: 12px 10px;
     font-weight: bold;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.customer-list-table thead th:last-child {
-    border-right: none; 
-}
-
-.customer-list-table thead th:last-child {
-    border-right: none;
+    border-right: 1px solid white;
 }
 
 .customer-list-table tbody td {
     padding: 5px 10px;
-    border-bottom: 1px solid #eee; 
+    border-bottom: 1px solid #CCC; 
     color: #555;
 }
 
@@ -535,9 +578,9 @@ body {
 
 .action-btn {
     font-family: "Kodchasan", Roboto, Arial, sans-serif;
-    background-color: #e9ecef; 
+    background-color: #E9ECEF; 
     color: #495057; 
-    border: 1px solid #ced4da; 
+    border: 1px solid #CED4DA; 
     padding: 5px 12px;
     cursor: pointer;
     border-radius: 4px; 
@@ -547,7 +590,7 @@ body {
 }
 
 .action-btn:hover {
-    background-color: #ced4da;
+    background-color: #CED4DA;
     color: #212529;
     text-decoration: none; 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -581,7 +624,7 @@ body {
 
 .pagination-link:hover,
 .pagination-arrow:not(.disabled):hover {
-    background-color: #f0f0f0; 
+    background-color: #F0F0F0; 
 }
 
 /* Style untuk halaman aktif (Angka 1 di gambar) */
@@ -593,7 +636,7 @@ body {
 
 /* Style untuk tombol panah yang dinonaktifkan */
 .pagination-arrow.disabled {
-    color: #ccc;
+    color: #CCC;
     cursor: default;
 }
 
@@ -663,26 +706,26 @@ body {
     font-family: "Kodchasan", Roboto, Arial, sans-serif;
     width: 100%;
     padding: 12px 15px; 
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     border-radius: 6px;
     font-size: 1em;
     color: #333;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #f9f9f9;
+    background-color: #F9F9F9;
 }
 
 .form-group select {
     font-family: "Kodchasan", Roboto, Arial, sans-serif;
     width: 100%;
     padding: 12px 40px 12px 15px; 
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     border-radius: 6px;
     font-size: 1em;
     color: #333;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #f9f9f9;
+    background-color: #F9F9F9;
     cursor: pointer;
     
     -webkit-appearance: none;
@@ -700,7 +743,7 @@ body {
     border-color: #023E8A;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     outline: none;
-    background-color: #fff;
+    background-color: #FFF;
 }
 
 .form-group input::placeholder {
@@ -751,7 +794,7 @@ body {
 
 #dokumenUpload h1 {
     font-size: 1.8em;
-    color: var(--text-color);
+    color: #333;
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
@@ -801,13 +844,13 @@ body {
 .form-group select { 
     width: 100%;
     padding: 10px 15px; 
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     border-radius: 6px;
     font-size: 1em;
     color: #333;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #f9f9f9;
+    background-color: #F9F9F9
 }
 
 .form-group input:focus,
@@ -815,7 +858,7 @@ body {
     border-color: #023E8A;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     outline: none;
-    background-color: #fff;
+    background-color: #FFF;
 }
 
 .form-group input::placeholder {
@@ -848,21 +891,21 @@ body {
     font-family: "Kodchasan", Roboto, Arial, sans-serif;
     width: 100%;
     padding: 8px 10px; 
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     border-radius: 6px; 
     font-size: 1em; 
     color: #333;
     box-sizing: border-box;
-    background-color: #f9f9f9;
+    background-color: #F9F9F9;
     cursor: pointer;
     line-height: normal;
 }
 
 .form-group input[type="file"]::-webkit-file-upload-button {
     content: "Pilih File";
-    background-color: #e9ecef;
+    background-color: #E9ECEF;
     color: #495057;
-    border: 1px solid #ced4da;
+    border: 1px solid #CED4DA;
     padding: 3px 8px;
     border-radius: 4px; 
     cursor: pointer;
@@ -874,9 +917,8 @@ body {
 }
 
 .form-group input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #ced4da;
+    background-color: #CED4DA;
 }
-
 
 /* =========================================================================================================================== */
 /* Dokumen Masuk */
@@ -932,12 +974,11 @@ body {
     text-align: left;
     padding: 12px 10px;
     font-weight: bold;
-    border-right: 1px solid 
+    border-right: 1px solid white;
 }
 
 .data-table tbody tr:last-child td {
-    border-bottom: none;
-    text-align: left;
+    border-bottom: none; 
 }
 
 .data-table tbody tr:hover {
@@ -946,9 +987,9 @@ body {
 
 .action-btn {
     font-family: "Kodchasan", Roboto, Arial, sans-serif;
-    background-color: #e9ecef; 
+    background-color: #E9ECEF; 
     color: #495057; 
-    border: 1px solid #ced4da; 
+    border: 1px solid #CED4DA; 
     padding: 5px 12px;
     cursor: pointer;
     border-radius: 4px; 
@@ -958,7 +999,7 @@ body {
 }
 
 .action-btn:hover {
-    background-color: #ced4da;
+    background-color: #CED4DA;
     color: #212529;
     text-decoration: none; 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -966,11 +1007,6 @@ body {
 
 .action-btn:active {
     transform: scale(0.98);
-}
-
-:root {
-    --pending-color: var(--status-pending); 
-    --error-color: var(--status-inactive);  
 }
 
 .data-table td {
@@ -1026,13 +1062,14 @@ body {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.card p {
+.card h2 {
+    color: var(--text-color);
     margin-top: 0;
     margin-bottom: 20px;
-    color: var(--text-color);
-    font-size: 1em;
+    font-size: 1.0em;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .arsip-list-table {
@@ -1050,7 +1087,7 @@ body {
     text-align: left;
     padding: 12px 15px; 
     font-weight: bold;
-    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+    border-right: 1px solid white; 
 }
 
 .arsip-list-table th, 
@@ -1078,4 +1115,497 @@ body {
     font-weight: 500;
 }
 
+/* =========================================================================================================================== *//* Gaya untuk Bagian Arsip Dokumen */
+/* Role */
+#roleManagement h1 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color); 
+}
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
 
+.card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.role-list-table {
+    padding-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.role-list-table thead th {
+    background-color: #023E8A; 
+    color: white;
+    text-align: left;
+    padding: 12px 15px; 
+    font-weight: bold;
+    border-right: 1px solid white; 
+}
+
+.role-list-table th, 
+.role-list-table td {
+    padding: 10px 15px; 
+    text-align: left;
+    border-bottom: 1px solid #EAEAEA; 
+    vertical-align: middle;
+}
+
+.role-list-table tbody tr:hover {
+    background-color: #F9F9F9; 
+}
+
+.role-list-table tbody tr:last-child td {
+    border-bottom: none; 
+}
+
+.role-list-table tbody tr td:nth-child(4) {
+    text-align: center; 
+}
+
+.action-btn {
+    font-family: "Kodchasan", Roboto, Arial, sans-serif;
+    background-color: #E9ECEF; 
+    color: #495057; 
+    border: 1px solid #CED4DA; 
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 4px; 
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    min-width: 60px; 
+}
+
+.action-btn:hover {
+    background-color: #CED4DA;
+    color: #212529;
+    text-decoration: none; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+/* =========================================================================================================================== *//* Gaya untuk Bagian Pengguna */
+/* Permission */
+#permissionSection h1 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#permissionSection {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.permission-table {
+   width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid var(--border-color); 
+}
+
+.permission-table thead th {
+    background-color: #023E8A; 
+    color: white;
+    text-align: left;
+    padding: 12px 15px; 
+    font-weight: bold;
+    border-right: 1px solid white; 
+}
+
+.permission-table th, 
+.permission-table td {
+    padding: 8px 10px; 
+    text-align: left;
+    border-bottom: 1px solid #EAEAEA; 
+    vertical-align: middle;
+}
+
+.group-header td {
+    background-color: #F0F4FF;
+    color: var(--text-color);
+    text-align: left !important;
+    font-weight: bold;
+    padding: 8px 8px; 
+    font-size: 14px;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color) !important; 
+}
+
+.group-header h4 {
+    margin: 5px 0;
+    font-size: 1em; 
+}
+
+.permission-table tbody tr:hover {
+    background-color: #F9F9F9; 
+}
+.permission-table tbody tr:last-child td {
+    border-bottom: none; 
+}
+.permission-table tbody tr td:nth-child(1) {
+    font-weight: 600; 
+}
+.permission-table tbody tr td:nth-child(n+2) {
+    text-align: center; 
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CCC;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #023E8A;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.save-button-container {
+    text-align: right;
+    padding-top: 25px;
+}
+
+.save-button {
+    font-family: "Kodchasan", Roboto, Arial, sans-serif;
+    background-color: #023E8A; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.save-button:hover {
+    background-color: #0096C7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.save-button:active {
+    transform: scale(0.99);
+}
+
+
+/* =========================================================================================================================== */
+/* Status Akun */
+#statusAkunSection {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#statusAkunSection h1 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-header-actions {
+    text-align: unset;
+    margin: 0; 
+}
+
+.card-header-wrapper {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.add-user-btn {
+    font-family: "Kodchasan", Roboto, Arial, sans-serif;
+    background-color: var(--status-active, #28a745); 
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.7em;
+    font-weight: 600;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-user-btn i {
+    margin-right: 5px;
+}
+
+.add-user-btn:hover {
+    background-color: #1e7e34;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-user-btn:active {
+    background-color: #1c7430;
+    transform: translateY(1px);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid var(--border-color); 
+}
+
+.data-table thead th {
+    background-color: #023E8A; 
+    color: white;
+    text-align: left;
+    padding: 12px 15px; 
+    font-weight: bold;
+    border-right: 1px solid white;
+}
+
+.data-table tbody td {
+    padding: 10px 15px; 
+    text-align: left;
+    border-bottom: 1px solid var(--border-color); 
+    border-right: 1px solid var(--border-color); 
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+    background-color: #F9F9F9;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+    border-right: none;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-active {
+    color: var(--status-active); 
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: var(--status-inactive);
+    font-weight: bold;
+}
+
+.action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.data-table .status-active + .action-btn-container .action-btn,
+.data-table button:contains('Nonaktifkan') {
+    background-color: var(--status-inactive); 
+    color: white;
+}
+
+.data-table .status-inactive + td .action-btn,
+.data-table button:contains('Aktifkan') {
+    background-color: var(--status-active);
+    color: white;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+/* =========================================================================================================================== */
+/* Log Aktivitas */
+#logAktivitasSection {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#logAktivitasSection h1 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.card h2 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0; 
+    font-size: 0.95em;
+    border: 1px solid var(--border-color); 
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.activity-list li {
+    padding: 12px 15px; 
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.5;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}
+
+.activity-list li:hover {
+    background-color: var(--light-bg); 
+}
+
+.activity-list li strong {
+    font-weight: 600; 
+}
+
+.activity-list li strong:first-child {
+    color: var(--timestamp-color);
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.activity-list li strong:nth-child(2) {
+    color: var(--primary-color); 
+    font-weight: 700;
+}
+
+.activity-list li strong:nth-child(3),
+.activity-list li strong:last-child:not(:nth-child(2)) {
+    color: var(--action-color); 
+    font-weight: 700;
+}

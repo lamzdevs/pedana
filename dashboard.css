@@ -875,4 +875,132 @@ body {
 
 .form-group input[type="file"]::-webkit-file-upload-button:hover {
     background-color: #ced4da;
+
+}
+
+
+/* =========================================================================================================================== */
+/* Dokumen Masuk Nasabah */
+#dokumenMasuk h1 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color); 
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.0em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.data-table {
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-table th, .data-table td {
+    padding: 15px; 
+    text-align: left;
+    border-bottom: 1px solid #EAEAEA; 
+}
+
+.data-table thead th {
+    background-color: #023E8A; 
+    color: white;
+    text-align: left;
+    padding: 12px 10px;
+    font-weight: bold;
+    border-right: 1px solid 
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none; 
+    text-align: center;
+}
+
+.data-table tbody tr:hover {
+    background-color: #F9F9F9; 
+}
+
+.action-btn {
+    font-family: "Kodchasan", Roboto, Arial, sans-serif;
+    background-color: #e9ecef; 
+    color: #495057; 
+    border: 1px solid #ced4da; 
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 4px; 
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    min-width: 60px; 
+}
+
+.action-btn:hover {
+    background-color: #ced4da;
+    color: #212529;
+    text-decoration: none; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+:root {
+    --pending-color: var(--status-pending); 
+    --error-color: var(--status-inactive);  
+}
+
+.data-table td {
+    vertical-align: middle;
+}
+
+.data-table tbody tr td:nth-child(5) {
+    text-align: center; 
+}
+
+.status-pending,
+.status-error {
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block; 
+    font-size: 0.9em;
+    min-width: 70px;
+}
+
+.status-pending {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: var(--status-pending);
+    border: 1px solid var(--status-pending);
+}
+
+.status-error {
+    background-color: rgba(220, 53, 69, 0.15); 
+    color: var(--status-inactive);
+    border: 1px solid var(--status-inactive);
 }

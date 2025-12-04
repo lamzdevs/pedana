@@ -751,7 +751,7 @@ body {
 
 #dokumenUpload h1 {
     font-size: 1.8em;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
@@ -1077,4 +1077,5 @@ body {
     color: #28a745; 
     font-weight: 500;
 }
+
 

@@ -936,7 +936,8 @@ body {
 }
 
 .data-table tbody tr:last-child td {
-    border-bottom: none; 
+    border-bottom: none;
+    text-align: left;
 }
 
 .data-table tbody tr:hover {
@@ -1076,3 +1077,4 @@ body {
     color: #28a745; 
     font-weight: 500;
 }
+

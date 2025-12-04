@@ -359,12 +359,92 @@
                                 <input type="file" id="fileSKKerja" accept=".pdf,.jpg,.jpeg,.png">
                             </div>
                             <div class="form-group">
-                                <label for="filePasFoto">Pas Foto Suami/Istri (Bagi sudah menikah):</label>
+                                <label for="filePasFoto">Formulir Pengajuan:</label>
+                                <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="filePasFoto">Surat Kuasa-Kuasa:</label>
+                                <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="filePasFoto">Surat Pendukung Lainnya</label>
                                 <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
                             </div>
                             
                             <button type="submit" class="submit-btn">Unggah Dokumen</button>
                         </form>
+                    </div>
+                </div>
+
+                <!-- Dokumen Masuk -->
+                <div id="dokumenMasuk" class="content-section">
+                    <h1>Dokumen Masuk</h1>
+                    <div class="card">
+                        <h2>Daftar Dokumen yang Baru Saja Diterima</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID Doc</th>
+                                    <th style="text-align: center;">Nama Nasabah</th>
+                                    <th style="text-align: center;">Jenis Dokumen</th>
+                                    <th style="text-align: center;">Tanggal Upload</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1001</td>
+                                    <td style="text-align: center;">Budi Santoso</td>
+                                    <td style="text-align: center;">Kartu Tanda Penduduk</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-pending">Pending</span>
+                                    </td>
+                                    <td style="text-align: center;"><button class="action-btn">Approve</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1002</td>
+                                    <td style="text-align: center;">Siti Aminah</td>
+                                    <td style="text-align: center;">Formulir Pengajuan</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-error">Revisi</span>
+                                    </td>
+                                    <td style="text-align: center;"><button class="action-btn">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1003</td>
+                                    <td style="text-align: center;">Rina Melati</td>
+                                    <td style="text-align: center;">Formulir Pengajuan</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-error">Revisi</span>
+                                    </td>
+                                    <td style="text-align: center;"><button class="action-btn">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1004</td>
+                                    <td style="text-align: center;">Eko Prasetyo</td>
+                                    <td style="text-align: center;">Kartu Keluarga</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-pending">Pending</span>
+                                    </td>
+                                    <td style="text-align: center;"><button class="action-btn">Approve</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1005</td>
+                                    <td style="text-align: center;">Faisal Hakim</td>
+                                    <td style="text-align: center;">Surat Keterangan Kerja</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-pending">Pending</span>
+                                    </td>
+                                    <td style="text-align: center;"><button class="action-btn">Approve</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
         
@@ -376,4 +456,5 @@
 </body>
 
 </html>
+
 

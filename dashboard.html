@@ -628,13 +628,15 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <form onsubmit="alert('Berhasil disimpan'); window.location.href = 'dashboard.html'; return false;">
-                            <div class="save-button-container">
-                                <button type="submit" class="save-button">
-                                    <i class="fas fa-save"></i> Simpan Pengaturan Izin
-                                </button>
+                            <div class="permission-actions">
+                                <div class="reset-button-container">
+                                <button class="reset-button">Reset ke Default</button>
                             </div>
-                        </form>
+                        
+                            <div class="save-button-container"> 
+                                <button class="save-button">Simpan</button>
+                            </div>
+                        </div>
                     </div>
                 </div>           
 
@@ -719,6 +721,8 @@
             <script src="menu.js"></script>
             <script src="no-rek.js"></script>
             <script src="nama-lengkap.js"></script>
+            <script src="permission-reset-save.js"></script>
 </body>
 </html>
+
 

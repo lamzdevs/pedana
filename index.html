@@ -1,41 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedana Login Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Login Pedana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            width: 100%;
+            position: relative;
+            z-index: 1; 
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="login-card">
-            <div class="left-side">
-                <img src="logo login/arsip-recycle.png" alt="gambar-arsip-recycle"/>
-            </div>
+            <div class="left-side"><img src="img/arsip-recycle.png" alt="gambar"/></div>
             <div class="right-side">
-                <img class="logo" src="logo login/logo-pedana-02.png" alt="Logo Penada">
+                <img class="logo" src="img/logo-pedana-02.png" alt="Logo">
                 <h1>Sign In</h1>
                 <form action="dashboard.html">
-                <div class="input-box">
-                    <i class="bx bxs-user"></i>
-                    <input type="text" placeholder="Username" required/>
-                </div>
-                <div class="input-box">
-                    <i class="bx bxs-lock-alt"></i>
-                    <input type="password" placeholder="Password" required/>
-                </div>
-                <button type="submit" class="btn">Login</button>
+                    <div class="input-box">
+                        <i class="bx bxs-envelope icon-left"></i>
+                        <input type="text" name="email" placeholder="Email" required/>
+                    </div>
+                    
+                    <div class="input-box">
+                        <i class="bx bxs-lock-alt icon-left"></i>
+                        <input type="password" name="password" id="passwordInput" placeholder="Password" required/>
+                        <div class="toggle-eye" id="togglePassword">
+                            <svg id="eyeClosed" class="eye-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 10 Q12 17 20 10"></path>
+                                <path d="M7 13 L6 16"></path>
+                                <path d="M12 14 L12 17"></path>
+                                <path d="M17 13 L18 16"></path>
+                            </svg>
+
+                            <svg id="eyeOpen" class="eye-svg" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M7 5 L5 3"></path>
+                                <path d="M12 5 V 2"></path>
+                                <path d="M17 5 L19 3"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <button type="submit" name="login" class="btn">Masuk</button>
                 </form>
                 <p class="register-text"> Are you an administrator or user official? <br>
-                <a href="#">Register as Administrator</a>
+                    <a href="register.html">Register as Administrator</a>
                 </p>
             </div>
         </div>
     </div>
+        <script src="js/IconMata.js"></script>
 </body>
 </html>
+

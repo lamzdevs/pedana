@@ -34,15 +34,3 @@ if (togglePassword && passwordInput) {
     }); // Menyembunyikan password saat sudah diisi
 }
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    if (username === 'nuralam@gmail.com' && password === 'pedana123') {
-        alert('Login Berhasil! Selamat datang di Pedana!');
-        window.location.href = 'dashboard.html'; 
-    } else {
-        alert('Username atau Password salah. Silakan coba lagi.');
-    }
-}); // Memvalidasi username dan password

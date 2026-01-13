@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedana Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <div class="nav-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="dashboard.html"><img src="logo/LOGO PENADA_FIX_UTAMA_GELAP.png" alt="Logo Pedana"></a>
+            </div>
+            
+            <!-- Menu Sidebar -->
+            <nav class="sidebar-nav">
+                <ul><li><a href="#" class="menu-link" data-target="dashboardSection"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-nasabah" class="toggle-menu">
+                        <label for="menu-nasabah" class="menu-label">
+                            <i class="fa-solid fa-users"></i><span class="arrow"></span> Nasabah</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="nasabahList"><i class="fa-solid fa-list"></i> Daftar Nasabah</a></li>
+                                <li><a href="#" class="menu-link" data-target="nasabahAdd"><i class="fa-solid fa-square-plus"></i> Tambah Nasabah Baru</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-dokumen" class="toggle-menu">
+                        <label for="menu-dokumen" class="menu-label">
+                            <i class="fa-solid fa-folder"></i><span class="arrow"></span> Dokumen</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="dokumenUpload"><i class="fa-solid fa-upload"></i> Unggah Dokumen Baru</a></li>
+                                <li><a href="#" class="menu-link" data-target="dokumenMasuk"><i class="fa-solid fa-inbox"></i> Dokumen Masuk</a></li>
+                                <li><a href="#" class="menu-link" data-target="dokumenArsip"><i class="fa-solid fa-box-archive"></i> Arsip Dokumen</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-laporan" class="toggle-menu">
+                        <label for="menu-laporan" class="menu-label">
+                            <i class="fa-solid fa-chart-column"></i><span class="arrow"></span> Laporan</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="laporanAnalisis"><i class="fa-solid fa-pie-chart"></i> Laporan & Analisis</a></li>
+                                <li><a href="#" class="menu-link" data-target="laporanDokumen"><i class="fa-solid fa-file-lines"></i> Laporan Mutasi</a></li>          
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="menu-group">
+                        <input type="checkbox" id="menu-manajemen" class="toggle-menu">
+                        <label for="menu-manajemen" class="menu-label">
+                            <i class="fa-solid fa-bars-progress"></i><span class="arrow"></span> Manajemen Pengguna</label>
+                            <ul class="submenu">
+                                <li><a href="#" class="menu-link" data-target="roleSection"><i class="fa-solid fa-user-shield"></i> Peran</a></li>
+                                <li><a href="#" class="menu-link" data-target="permissionSection"><i class="fa-solid fa-lock"></i> Hak Izin</a></li>
+                                <li><a href="#" class="menu-link" data-target="statusAkunSection"><i class="fa-solid fa-user-check"></i> Status Akun</a></li>
+                                <li><a href="#" class="menu-link" data-target="logAktivitasSection"><i class="fa-solid fa-clock-rotate-left"></i> Log Aktivitas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="log-out" style="display: flex; flex-direction: column; padding: 0; background: transparent;">
+                    <div style="padding: 10px 20px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                        <div style="font-size: 15px; font-weight: 700; color: #333; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            Administrator
+                        </div>
+                    </div>
+                    <div class="log-out" style="margin-top: 10px;">
+                        <a href="index.html" onclick="return confirm('Apakah Anda yakin ingin keluar?');">
+                            <i class="fas fa-sign-out-alt"></i> Keluar
+                        </a>
+                    </div>
+                </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Header Navbar -->
+            <header class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="search" placeholder="Cari Nama Nasabah atau No Arsip...">
+                </div>
+                <div class="user-profile">
+                    <div class="dropdown-wrapper">
+                        <i class="fa-regular fa-envelope" id="msgIcon"></i>
+                        <span class="badge">3</span> <div class="dropdown-content" id="msgDropdown">
+                            <div class="dropdown-header">Pesan Baru</div>
+                            <ul class="dropdown-list">
+                                <li>
+                                    <strong>Supervisor Kafi</strong>
+                                    <p>Mohon cek dokumen nasabah ARS-001...</p>
+                                    <small>2 menit yang lalu</small>
+                                </li>
+                                <li>
+                                    <strong>Staf Vega</strong>
+                                    <p>Input data nasabah baru sudah selesai.</p>
+                                    <small>1 jam yang lalu</small>
+                                </li>
+                            </ul>
+                            <a href="#" class="view-all">Lihat Semua Pesan</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-wrapper">
+                        <i class="fa-regular fa-bell" id="bellIcon"></i>
+                        <span class="badge badge-red">2</span>
+                        <div class="dropdown-content" id="bellDropdown">
+                            <div class="dropdown-header">Notifikasi</div>
+                            <ul class="dropdown-list">
+                                <li class="unread">
+                                    <i class="fas fa-circle-exclamation"></i>
+                                    <div>
+                                        <p>2 Dokumen perlu revisi segera!</p>
+                                        <small>Baru saja</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle" style="color: var(--status-active);"></i>
+                                    <div>
+                                        <p>Verifikasi akun Nuralam berhasil.</p>
+                                        <small>5 jam yang lalu</small>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="#" class="view-all">Lihat Semua Notifikasi</a>
+                        </div>
+                    </div>
+
+                    <div class="profile-avatar">
+                        <img src="img/profil.png" alt="profile">
+                    </div>
+                    <div class="user-info">
+                        <div class="name">Hai, Nuralam Sukmawijaya!</div>
+                        <div class="email">nuralam@gmail.com</div>
+                    </div>
+                </div>
+            </header>
+            
+        <!-- Dashboard Menu -->
+        <div id="dashboardSection" class="content-section active">
+            <h1>Dashboard Utama</h1>
+                <div class="metric-cards">
+                    <div class="card metric-card total-nasabah">
+                        <i class="fa-solid fa-users"></i>
+                        <div class="card-info">
+                            <div class="value">7</div>
+                            <div class="label">Total Nasabah Aktif</div>
+                        </div> 
+                    </div>
+                    <div class="card metric-card new-entries">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <div class="card-info">
+                            <div class="value">5</div>
+                            <div class="label">Entri Nasabah Bulan Ini</div>
+                        </div>
+                    </div>
+                    <div class="card metric-card doc-pending">
+                        <i class="fa-solid fa-file-circle-exclamation"></i>
+                        <div class="card-info">
+                            <div class="value">3</div>
+                            <div class="label">Dokumen Pending</div>
+                        </div>
+                    </div>
+                    <div class="card metric-card doc-error">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div class="card-info">
+                            <div class="value">2</div>
+                            <div class="label">Dokumen Bermasalah</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-area">
+                <div class="card chart-card">
+                    <h2>Tren Entri Data Tahunan</h2>
+                    <div class="barchart-container">
+                        <ul class="chart">
+                            <li class="bar color-1" style="height: 70%;"><span>Q1: 70</span></li>
+                            <li class="bar color-2" style="height: 50%;"><span>Q2: 50</span></li>
+                            <li class="bar color-3" style="height: 30%;"><span>Q3: 30</span></li>
+                            <li class="bar color-4" style="height: 20%;"><span>Q4: 20</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card activity-card">
+                    <h2>Aktivitas Terbaru</h2>
+                    <ul class="activity-list">
+                        <li><span class="user-name">Supervisor Kafi Diandra</span> memverifikasi ID Doc (DOC-1001).</li>
+                        <li><span class="user-name">Staf Vega Ricky</span> menambahkan Nasabah Baru (ARS-00132).</li>
+                        <li><span class="user-name">Admin Nuralam</span> mengubah hak akses (Vega Ricky).</li>
+                        <li><span class="user-name">Admin M Daffa</span> mengubah hak akses (Kafi Diandra).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            <section id="content-area">
+                <!-- Lihat Pesan -->
+                <div id="allMessagesSection" class="content-section">
+                    <div class="header-row">
+                        <h1>Kotak Masuk Pesan</h1>
+                        <button class="btn-write-new">
+                            <i class="fas fa-plus-circle"></i> Tulis Pesan
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <table class="customer-list-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Status</th>
+                                    <th>Pengirim</th>
+                                    <th>Pesan</th>
+                                    <th style="text-align: center;">Waktu</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;"><i class="fas fa-envelope-open-text" style="color: var(--marian-blue);"></i></td>
+                                    <td><strong>Supervisor Kafi</strong></td>
+                                    <td>Mohon cek dokumen nasabah ARS-001...</td>
+                                    <td style="text-align: center;">2 menit lalu</td>
+                                    <td style="text-align: center;">
+                                        <button class="action-btn" onclick="openMsg('Supervisor Kafi', '2 menit lalu', 'Mohon cek dokumen nasabah ARS-001 segera.')">Buka</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;"><i class="fas fa-envelope" style="color: gray;"></i></td>
+                                    <td><strong>Staf Vega</strong></td>
+                                    <td>Input data nasabah baru sudah selesai.</td>
+                                    <td style="text-align: center;">1 jam lalu</td>
+                                    <td style="text-align: center;">
+                                        <button class="action-btn" onclick="openMsg('Staf Vega', '1 jam lalu', 'Input data nasabah baru untuk wilayah Bogor sudah masuk sistem.')">Buka</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Lihat Notifikasi -->
+                <div id="allNotificationsSection" class="content-section">
+                    <div class="header-row" style="margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
+                        <h1>Semua Notifikasi</h1>
+                        <button class="btn-write-new" onclick="alert('Notifikasi berhasil ditandai telah dibaca')">
+                            <i class="fas fa-check-double"></i> Tandai Semua Dibaca
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <table class="customer-list-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; width: 50px;">Tipe</th>
+                                    <th>Notifikasi</th>
+                                    <th style="text-align: center;">Waktu</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="unread-row" style="background-color: #f0f7ff;">
+                                    <td style="text-align: center;"><i class="fas fa-circle-exclamation" style="color: var(--status-inactive);"></i></td>
+                                    <td><strong>Urgent:</strong> 2 Dokumen nasabah ARS-001 perlu revisi segera!</td>
+                                    <td style="text-align: center;">Baru saja</td>
+                                    <td style="text-align: center;">
+                                        <button class="action-btn" onclick="openNotif('Sistem Keamanan', 'Baru saja', 'Terdapat ketidaksesuaian data pada scan KTP nasabah Budi Santoso. Segera lakukan verifikasi ulang.')">Detail</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;"><i class="fas fa-check-circle" style="color: var(--status-active);"></i></td>
+                                    <td>Verifikasi akun administrator Nuralam berhasil dilakukan.</td>
+                                    <td style="text-align: center;">5 jam lalu</td>
+                                    <td style="text-align: center;">
+                                        <button class="action-btn" onclick="openNotif('Sistem Verifikasi', '5 jam lalu', 'Permintaan akses administrator untuk user Nuralam telah disetujui oleh sistem.')">Detail</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="notifModal" class="modal-overlay">
+                    <div class="modal-card">
+                        <div class="modal-header">
+                            <h2>Detail Notifikasi</h2>
+                            <button class="close-modal" id="closeNotifModal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="sender-meta">
+                                <strong id="notifSource" style="color: var(--marian-blue);"></strong>
+                                <span id="notifTime" class="time-stamp"></span>
+                            </div>
+                            <p id="notifBody" class="message-content" style="margin-top: 15px;"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="submit-btn" onclick="document.getElementById('notifModal').style.display='none'">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daftar Nasabah -->
+                <div id="nasabahList" class="content-section">
+                    <h1>Daftar Nasabah</h1>
+                    <div class="card">
+                        <table class="customer-list-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">No</th>
+                                    <th style="text-align: center;">Tanggal Arsip</th>
+                                    <th style="text-align: center;">No Arsip</th>
+                                    <th style="text-align: center;">Nama Lengkap</th>
+                                    <th style="text-align: center;">Nomor Rekening</th>
+                                    <th style="text-align: center;">Jenis Akun</th>
+                                    <th style="text-align: center;">Status Data</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td style="text-align: center;">15/11/2025</td>
+                                        <td style="text-align: center;">ARS-00123</td>
+                                        <td>Budi Santoso</td>
+                                        <td>0001-01-005432-50-9</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td style="text-align: center;">15/11/2025</td>
+                                        <td style="text-align: center;">ARS-00124</td>
+                                        <td>Siti Aminah</td>
+                                        <td>0002-01-070987-50-8</td>
+                                        <td style="text-align: center;">Giro</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">3</td>
+                                        <td style="text-align: center;">16/11/2025</td>
+                                        <td style="text-align: center;">ARS-00125</td>
+                                        <td>Dewi Kartika</td>
+                                        <td>0003-01-056789-50-1</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-inactive">Tidak Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">4</td>
+                                        <td style="text-align: center;">17/11/2025</td>
+                                        <td style="text-align: center;">ARS-00126</td>
+                                        <td>Ahmad Ramadhan</td>
+                                        <td>0004-01-875375-50-0</td>
+                                        <td style="text-align: center;">Giro</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">5</td>
+                                        <td style="text-align: center;">17/11/2025</td>
+                                        <td style="text-align: center;">ARS-00127</td>
+                                        <td>Rina Melati</td>
+                                        <td>0005-01-654607-50-2</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">6</td>
+                                        <td style="text-align: center;">18/11/2025</td>
+                                        <td style="text-align: center;">ARS-00128</td>
+                                        <td>Joko Susilo</td>
+                                        <td>0006-01-202522-50-5</td>
+                                        <td style="text-align: center;">Deposito</td>
+                                        <td style="text-align: center;" class="status-inactive">Tidak Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">7</td>
+                                        <td style="text-align: center;">18/11/2025</td>
+                                        <td style="text-align: center;">ARS-00129</td>
+                                        <td>Maya Sari</td>
+                                        <td>0007-01-252627-50-7</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">8</td>
+                                        <td style="text-align: center;">19/11/2025</td>
+                                        <td style="text-align: center;">ARS-00130</td>
+                                        <td>Faisal Hakim</td>
+                                        <td>0008-01-303932-50-4</td>
+                                        <td style="text-align: center;">Giro</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">9</td>
+                                        <td style="text-align: center;">19/11/2025</td>
+                                        <td style="text-align: center;">ARS-00131</td>
+                                        <td>Nia Kurniawan</td>
+                                        <td>0009-01-353637-50-3</td>
+                                        <td style="text-align: center;">Tabungan</td>
+                                        <td style="text-align: center;" class="status-inactive">Tidak Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">10</td>
+                                        <td style="text-align: center;">20/11/2025</td>
+                                        <td style="text-align: center;">ARS-00132</td>
+                                        <td>Eko Prasetyo</td>
+                                        <td>0010-01-404842-50-6</td>
+                                        <td style="text-align: center;">Deposito</td>
+                                        <td style="text-align: center;" class="status-active">Aktif</td>
+                                        <td style='text-align: center;'>
+                                            <div style='display: flex; justify-content: center; gap: 5px;'>
+                                                <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-eye'></i>
+                                                </a>
+
+                                                <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-edit'></i>
+                                                </a>
+
+                                                <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                                <i class='fas fa-trash'></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination-container" id="paginationControls">
+                                <a href="#" class="pagination-arrow" id="prevPage" data-direction="prev">&lt;</a>
+                                <a href="#" class="pagination-link active">1</a>
+                                <a href="#" class="pagination-link">2</a>
+                                <a href="#" class="pagination-link">3</a>
+                                <a href="#" class="pagination-link">4</a>
+                                <a href="#" class="pagination-link">5</a>
+                                <a href="#" class="pagination-link">6</a>
+                                <span class="pagination-ellipsis">...</span>
+                                <a href="#" class="pagination-link">25</a>
+                                <a href="#" class="pagination-arrow" id="nextPage" data-direction="next">&gt;</a>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Tambah Nasabah -->
+                <div id="nasabahAdd" class="content-section">
+                    <h1>Tambah Nasabah Baru</h1>
+                    <div class="card">
+                        <form class="form-nasabah" id="uploadForm" onsubmit="alert('Data berhasil tersimpan'); window.location.href = 'dashboard.html'; return false;">
+                            <div class="form-group">
+                                <label for="namaLengkap">Nama Lengkap:</label>
+                                <input type="text" id="namaLengkap" required placeholder="Isi Nama Lengkap Sesuai KTP">
+                            </div>
+                            <div class="form-group">
+                                <label for="jenisAkun">Jenis Akun:</label>
+                                <select id="jenisAkun" required>
+                                    <option value="">Pilih Jenis Akun</option>
+                                    <option value="Tabungan">Tabungan</option>
+                                    <option value="Giro">Giro</option>
+                                    <option value="Deposito">Deposito</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="noRekening">Nomor Rekening:</label>
+                                <input type="text" id="noRekening" required placeholder="Masukkan 15 Digit Nomor Rekening">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggalArsip">Tanggal Arsip:</label>
+                                <input type="date" id="tanggalArsip" required>
+                            </div>
+                            <button type="submit" class="submit-btn">Simpan Data Nasabah</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Unggah Dokumen Baru -->
+                <div id="dokumenUpload" class="content-section">
+                    <h1>Unggah Dokumen Baru</h1>
+                    <div class="card" style="position: relative;">
+                        <form class="form-dokumen" id="uploadForm" onsubmit="alert('Dokumen berhasil diunggah'); return false;">
+                            <div class="form-group nasabah-group">
+                                <label for="nasabahID">Pilih Nasabah (ID/Nama):</label>
+                                <input type="text" id="nasabahID" list="nasabah-list" placeholder="Pilih atau ketik Nasabah" required>
+                                <datalist id="nasabah-list">
+                                    <option value="Budi Santoso (ARS-00123)"></option>
+                                    <option value="Siti Aminah (ARS-00124)"></option>
+                                    <option value="Ahmad Ramadhan (ARS-00126)"></option>
+                                    <option value="Rina Melati (ARS-00127)"></option>
+                                    <option value="Maya Sari (ARS-00129)"></option>
+                                </datalist>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="fileKTP">Kartu Tanda Penduduk (KTP):</label>
+                                <input type="file" id="fileKTP" accept=".pdf,.jpg,.jpeg,.png"> 
+                            </div>
+                            <div class="form-group">
+                                <label for="fileKK">Kartu Keluarga (KK):</label>
+                                <input type="file" id="fileKK" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileNPWP">Nomor Pokok Wajib Pajak (NPWP):</label>
+                                <input type="file" id="fileNPWP" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileBukuTabungan">Fotokopi Buku Tabungan:</label>
+                                <input type="file" id="fileBukuTabungan" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileSlipGaji">Surat Keterangan Penghasilan:</label>
+                                <input type="file" id="fileSlipGaji" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="fileSKKerja">Surat Keterangan Kerja:</label>
+                                <input type="file" id="fileSKKerja" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="filePasFoto">Formulir Pengajuan:</label>
+                                <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="filePasFoto">Surat Kuasa-Kuasa:</label>
+                                <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="filePasFoto">Surat Pendukung Lainnya</label>
+                                <input type="file" id="filePasFoto" accept=".jpg,.jpeg,.png">
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Unggah Dokumen</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Dokumen Masuk -->
+                <div id="dokumenMasuk" class="content-section">
+                    <h1>Dokumen Masuk</h1>
+                    <div class="card">
+                        <h2>Daftar Dokumen yang Baru Saja Diterima</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID Doc</th>
+                                    <th style="text-align: center;">Nama Nasabah</th>
+                                    <th style="text-align: center;">Jenis Dokumen</th>
+                                    <th style="text-align: center;">Tanggal Upload</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1001</td>
+                                    <td>Budi Santoso</td>
+                                    <td style="text-align: center;">Kartu Tanda Penduduk</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-pending">Pending</span>
+                                    </td>
+                                    <td style='text-align: center;'>
+                                        <div style='display: flex; justify-content: center; gap: 5px;'>
+                                            <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-eye'></i>
+                                            </a>
+
+                                            <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-edit'></i>
+                                            </a>
+
+                                            <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-trash'></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1002</td>
+                                    <td>Siti Aminah</td>
+                                    <td style="text-align: center;">Formulir Pengajuan</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-error">Revisi</span>
+                                    </td>
+                                    <td style='text-align: center;'>
+                                        <div style='display: flex; justify-content: center; gap: 5px;'>
+                                            <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-eye'></i>
+                                            </a>
+
+                                            <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-edit'></i>
+                                            </a>
+
+                                            <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-trash'></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1003</td>
+                                    <td>Rina Melati</td>
+                                    <td style="text-align: center;">Formulir Pengajuan</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-error">Revisi</span>
+                                    </td>
+                                    <td style='text-align: center;'>
+                                        <div style='display: flex; justify-content: center; gap: 5px;'>
+                                            <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-eye'></i>
+                                            </a>
+
+                                            <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-edit'></i>
+                                            </a>
+
+                                            <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-trash'></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1004</td>
+                                    <td>Eko Prasetyo</td>
+                                    <td style="text-align: center;">Kartu Keluarga</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-pending">Pending</span>
+                                    </td>
+                                    <td style='text-align: center;'>
+                                        <div style='display: flex; justify-content: center; gap: 5px;'>
+                                            <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-eye'></i>
+                                            </a>
+
+                                            <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-edit'></i>
+                                            </a>
+
+                                            <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-trash'></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">DOC-1005</td>
+                                    <td>Faisal Hakim</td>
+                                    <td style="text-align: center;">Surat Keterangan Kerja</td>
+                                    <td style="text-align: center;">01/12/2025</td>
+                                    <td style="text-align: center;">
+                                        <span class="status-pending">Pending</span>
+                                    </td>
+                                    <td style='text-align: center;'>
+                                        <div style='display: flex; justify-content: center; gap: 5px;'>
+                                            <a style='background-color:#007bff; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-eye'></i>
+                                            </a>
+
+                                            <a style='background-color:orange; color: black; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-edit'></i>
+                                            </a>
+
+                                            <a style='background-color: #dc3545; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none;'>
+                                            <i class='fas fa-trash'></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Arsip Dokumen -->
+                <div id="dokumenArsip" class="content-section">
+                    <h1>Arsip Dokumen</h1>
+                    <div class="card">
+                        <h2>Data dokumen yang sudah diarsipkan.</h2>
+                        
+                        <table class="arsip-list-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">No.</th>
+                                    <th style="text-align: center;">Nama Nasabah</th>
+                                    <th style="text-align: center;">Kebutuhan</th>
+                                    <th style="text-align: center;">Nomor Arsip</th>
+                                    <th style="text-align: center;">Tanggal Diarsipkan</th>
+                                    <th style="text-align: center;">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">1</td>
+                                    <td>Dewi Kartika</td>
+                                    <td>Pengajuan Kredit Pemilikan Rumah</td>
+                                    <td style="text-align: center;">ARS-00125</td>
+                                    <td style="text-align: center;">2023-10-15</td>
+                                    <td style="text-align: center;" class="status-success">Telah Lunas</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                    <td>Joko Susilo</td>
+                                    <td>Pengajuan Kredit Modal Kerja</td>
+                                    <td style="text-align: center;">ARS-00128</td>
+                                    <td style="text-align: center;">2023-10-30</td>
+                                    <td style="text-align: center;" class="status-success">Telah Lunas</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">3</td>
+                                    <td>Nia Kurniawan</td>
+                                    <td>Pengajuan Kredit Usaha Rakyat</td>
+                                    <td style="text-align: center;">ARS-00131</td>
+                                    <td style="text-align: center;">2023-11-20</td>
+                                    <td style="text-align: center;" class="status-success">Telah Lunas</td>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Laporan & Analisis -->
+                <div id="laporanAnalisis" class="content-section">
+                    <h1>Laporan & Analisis</h1>
+                    <div class="dashboard-grid">
+                        <div class="stat-card blue">
+                            <div class="stat-title">Total Nasabah</div>
+                            <div class="stat-value">10</div>
+                        </div>
+                        <div class="stat-card green">
+                            <div class="stat-title">Nasabah Aktif</div>
+                            <div class="stat-value">7</div>
+                        </div>
+                        <div class="stat-card red">
+                            <div class="stat-title">Diarsipkan</div>
+                            <div class="stat-value">3</div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="card">
+                            <div class="chart-header">
+                                <h3>Komposisi Jenis Akun</h3>
+                            </div>
+                            <div style="height: 300px;">
+                                <canvas id="chartJenisAkun"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="chart-header">
+                                <h3>Rasio Status Nasabah</h3>
+                            </div>
+                            <div style="height: 300px; max-width: 400px; margin: 0 auto;">
+                                <canvas id="chartStatus"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Laporan Dokumen -->
+                <div id="laporanDokumen" class="content-section">
+                    <div class="header-row">
+                        <h1>Laporan Mutasi</h1>
+                        <button onclick="cetakLaporan()" class="btn-print">
+                            <i class="fas fa-print"></i> Cetak Laporan
+                        </button>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;"></div>
+
+                    <div class="card">
+                        <h2>Data dokumen yang sudah diarsipkan.</h2>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i> 
+                            Halaman ini menampilkan riwayat nasabah yang dinonaktifkan (Arsip).
+                        </div>
+
+                        <table class="arsip-list-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">No.</th>
+                                    <th style="text-align: center;">Nomor Arsip</th>
+                                    <th style="text-align: center;">Nama Nasabah</th>
+                                    <th style="text-align: center;">Kebutuhan</th>
+                                    <th style="text-align: center;">Tanggal Arsip</th>
+                                    <th style="text-align: center;">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">1</td>
+                                    <td style="text-align: center;"><strong>ARS-00125</strong></td>
+                                    <td>Dewi Kartika</td>
+                                    <td>Pengajuan KPR</td>
+                                    <td style="text-align: center;">15/04/2024</td>
+                                    <td style="text-align: center;" style="font-style: italic;">Dokumen lengkap telah diarsipkan.</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                    <td style="text-align: center;"><strong>ARS-00128</strong></td>
+                                    <td>Joko Susilo</td>
+                                    <td>Pengajuan Modal Kerja</td>
+                                    <td style="text-align: center;">16/04/2024</td>
+                                    <td style="text-align: center;" style="font-style: italic;">Dokumen lengkap telah diarsipkan.</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">3</td>
+                                    <td style="text-align: center;"><strong>ARS-00131</strong></td>
+                                    <td>Nia Kurniawan</td>
+                                    <td>Pengajuan KUR</td>
+                                    <td style="text-align: center;">17/04/2024</td>
+                                    <td style="text-align: center;" style="font-style: italic;">Dokumen lengkap telah diarsipkan.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Role -->
+                <div id="roleSection" class="content-section">
+                    <h1>Peran</h1>
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h2>Daftar Peran</h2>
+                            <button onclick="bukaModalTambahUser()" style="background: #28a745; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-family: 'Kodchasan', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-user-plus"></i> Tambah Akun Baru
+                            </button>
+                        </div>
+
+                        <table class="data-table" style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background-color: #f8f9fa; text-align: left;">
+                                    <th style="padding: 12px; border-bottom: 2px solid #dee2e6;">Nama Pengguna</th>
+                                    <th style="padding: 12px; border-bottom: 2px solid #dee2e6;">Email Pengguna</th>
+                                    <th style="text-align: center; padding: 12px; border-bottom: 2px solid #dee2e6;">Peran</th>
+                                    <th style="text-align: center; padding: 12px; border-bottom: 2px solid #dee2e6;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr style="border-bottom: 1px solid #EEEEEE;">
+                                        
+                                        <td style="padding: 12px;">
+                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                <img src="img/profil.png" 
+                                                        alt="Foto" 
+                                                        style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span style="font-weight: 600; color: #333;">Nuralam Sukmawijaya</span>
+                                            </div>
+                                        </td>
+
+                                        <td style="padding: 12px; color: #555;">nuralam@gmail.com</td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <span style="background: #007bff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Administrator</span>
+                                        </td>
+                                               
+                                        <td style="text-align: center; padding: 12px;">
+                                            <div style="display: flex; justify-content: center; gap: 8px;">
+                                                    <span style="font-size: 12px; color: #023E8A; font-weight: bold; padding: 5px; border: 1px solid #023E8A; border-radius: 5px;">
+                                                        <i class="fas fa-check-circle"></i> Akun Anda
+                                                    </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #EEEEEE;">
+                                        
+                                        <td style="padding: 12px;">
+                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                <img src="img/daffa.JPG" 
+                                                        alt="Foto" 
+                                                        style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span style="font-weight: 600; color: #333;">M Daffa Fauzan</span>
+                                            </div>
+                                        </td>
+
+                                        <td style="padding: 12px; color: #555;">daffa@gmail.com</td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <span style="background: #007bff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Administrator</span>
+                                        </td>
+
+                                        <td style="text-align: center; padding: 12px;">
+                                            <div style="display: flex; justify-content: center; gap: 8px;">
+                                                    <span style="border: none; background: orange; color: #333; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span style="border: none; background: #dc3545; color: white; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #EEEEEE;">
+                                        
+                                        <td style="padding: 12px;">
+                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                <img src="img/kafi.jpg" 
+                                                        alt="Foto" 
+                                                        style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span style="font-weight: 600; color: #333;">Kafi Diandra Mufid</span>
+                                            </div>
+                                        </td>
+
+                                        <td style="padding: 12px; color: #555;">kafidiandra@gmail.com</td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <span style="background: #48CAE4; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Supervisor</span>
+                                        </td>
+
+                                        <td style="text-align: center; padding: 12px;">
+                                            <div style="display: flex; justify-content: center; gap: 8px;">
+                                                    <span style="border: none; background: orange; color: #333; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span style="border: none; background: #dc3545; color: white; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #EEEEEE;">
+                                        
+                                        <td style="padding: 12px;">
+                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                <img src="img/pega.jpeg" 
+                                                        alt="Foto" 
+                                                        style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span style="font-weight: 600; color: #333;">Vega Ricky </span>
+                                            </div>
+                                        </td>
+
+                                        <td style="padding: 12px; color: #555;">vega@gmail.com</td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <span style="background: #6f42c1; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Staff</span>
+                                        </td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <div style="display: flex; justify-content: center; gap: 8px;">
+                                                    <span style="border: none; background: orange; color: #333; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    
+                                                    <span style="border: none; background: #dc3545; color: white; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #EEEEEE;">
+                                        
+                                        <td style="padding: 12px;">
+                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                <img src="img/rizky.jpg" 
+                                                        alt="Foto" 
+                                                        style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                                                <span style="font-weight: 600; color: #333;">Rizky Fauzan Hidayat</span>
+                                            </div>
+                                        </td>
+
+                                        <td style="padding: 12px; color: #555;">rizkyfauzan@gmail.com</td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <span style="background: #6c757d; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Guest</span>
+                                        </td>
+                                        
+                                        <td style="text-align: center; padding: 12px;">
+                                            <div style="display: flex; justify-content: center; gap: 8px;">
+                                                    <span style="border: none; background: orange; color: #333; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span style="border: none; background: #dc3545; color: white; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Permission -->
+                <div id="permissionSection" class="content-section">
+                    <h1>Hak Izin</h1>
+                    <div class="card">
+                        <h2>Pengaturan Akses Fitur</h2>
+                        <div class="table-scroll-wrapper">
+                            <table class="permission-table">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Fitur/Aksi (Permission)</th>
+                                        <th style="text-align: center;">Admin</th>
+                                        <th style="text-align: center;">Supervisor</th>
+                                        <th style="text-align: center;">Staf</th>
+                                        <th style="text-align: center;">Guest</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="group-header"><td colspan="5"><h4><i class="fas fa-chart-line"></i> Dashboard</h4></td></tr>
+                                    <tr>
+                                        <td>Akses Dashboard Utama</td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="group-header"><td colspan="5"><h4><i class="fas fa-users"></i> Menu Nasabah</h4></td></tr>
+                                    <tr>
+                                        <td>Daftar Nasabah (Lihat)</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tambah Nasabah Baru</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr class="group-header"><td colspan="5"><h4><i class="fas fa-folder"></i> Menu Dokumen</h4></td></tr>
+                                    <tr>
+                                        <td>Unggah Dokumen</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dokumen Masuk</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arsip Dokumen</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr class="group-header"><td colspan="5"><h4><i class="fas fa-chart-column"></i> Menu Laporan</h4></td></tr>
+                                    <tr>
+                                        <td>Laporan & Analisis</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Laporan Dokumen</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                    </tr>
+                                    <tr class="group-header"><td colspan="5"><h4><i class="fas fa-bars-progress"></i> Manajemen Pengguna</h4></td></tr>
+                                    <tr>
+                                        <td>Mengelola Role,Permission,Status & Log</td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>
+                                        <td><div class="toggle-container"><label class="switch"><input type="checkbox" ><span class="slider round"></span></label></div></td>   
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                            <div style="margin-top:20px; text-align:right;">
+                                <button class="save-button">
+                                    <i class="fas fa-save"></i> Simpan Perubahan
+                                </button>
+                            </div>
+                        </div>
+                </div>
+                        
+                <!-- Status Akun -->
+                <div id="statusAkunSection" class="content-section">
+                    <h1>Status Akun</h1>
+                    <div class="card">
+                        <h2>Informasi Status Aktif/Nonaktif Akun Pengguna</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Email Pengguna</th>
+                                    <th style="text-align: center;">Nama Pengguna</th>
+                                    <th style="text-align: center;">Peran</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nuralam@gmail.com</td>
+                                    <td>Nuralam Sukmawijaya</td>
+                                    <td style="text-align: center;">Administrator</td>
+                                    <td style="text-align: center;">
+                                        <span style="font-weight: bold; font-size: 12px; color: #28a745; font-family: 'Kodchasan',  sans-serif;">
+                                            Aktif
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <button disabled style="background:#ccc; cursor:not-allowed; border:none; padding:5px 10px; border-radius:10px; color:#666; font-family: 'Kodchasan',  sans-serif;">
+                                            <i class="fas fa-lock"></i> Terkunci
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>daffa@gmail.com</td>
+                                    <td>M Daffa Fauzan</td>
+                                    <td style="text-align: center;">Administrator</td>
+                                    <td style="text-align: center;">
+                                        <span style="font-weight: bold; font-size: 12px; color: #28a745; font-family: 'Kodchasan',  sans-serif;">
+                                            Aktif
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <button disabled style="background:#ccc; cursor:not-allowed; border:none; padding:5px 10px; border-radius:10px; color:#666; font-family: 'Kodchasan',  sans-serif;">
+                                            <i class="fas fa-lock"></i> Terkunci
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>kafidiandra@gmail.com</td>
+                                    <td>Kafi Diandra Mufid</td>
+                                    <td style="text-align: center;">Supervisor</td>
+                                    <td style="text-align: center;">
+                                        <span style="font-weight: bold; font-size: 12px; color: #28a745; font-family: 'Kodchasan',  sans-serif;">
+                                            Aktif
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <button 
+                                            style="background:#dc3545; color:white; border:none; padding:5px 10px; border-radius:10px; cursor:pointer; font-family: 'Kodchasan',  sans-serif;">
+                                                Nonaktifkan
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>vega@gmail.com</td>
+                                    <td>Vega Ricky</td>
+                                    <td style="text-align: center;">Staff</td>
+                                    <td style="text-align: center;">
+                                        <span style="font-weight: bold; font-size: 12px; color: #28a745; font-family: 'Kodchasan',  sans-serif;">
+                                            Aktif
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <button 
+                                            style="background:#dc3545; color:white; border:none; padding:5px 10px; border-radius:10px; cursor:pointer; font-family: 'Kodchasan',  sans-serif;">
+                                                Nonaktifkan
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>rizkyfauzan@gmail.com</td>
+                                    <td>Rizky Fauzan Hidayat</td>
+                                    <td style="text-align: center;">Guest</td>
+                                    <td style="text-align: center;">
+                                        <span style="font-weight: bold; font-size: 12px; color: #28a745; font-family: 'Kodchasan',  sans-serif;">
+                                            Aktif
+                                        </span>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <button 
+                                            style="background:#dc3545; color:white; border:none; padding:5px 10px; border-radius:10px; cursor:pointer; font-family: 'Kodchasan',  sans-serif;">
+                                                Nonaktifkan
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Log Aktivitas -->
+                <div id="logAktivitasSection" class="content-section">
+                    <h1>Log Aktivitas</h1>
+                    <div class="card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;">
+                            <h2>Riwayat Aktivitas Pengguna</h2>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <button style="background:none; border:none; cursor:pointer; color:#023E8A;" title="Segarkan Log">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+
+                                <button onclick="hapusSeluruhLog()" 
+                                        style="background-color: #dc3545; color: white; border: none; padding: 5px 12px; border-radius: 5px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 5px; font-family: 'Kodchasan', sans-serif;">
+                                    <i class="fas fa-trash-alt"></i> Bersihkan Log
+                                </button>
+                               
+                            </div>
+                        </div>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; width: 150px;">Waktu</th>
+                                    <th style="text-align: center;">Pengguna</th>
+                                    <th style="text-align: center; width: 120px;">Role</th>
+                                    <th style="text-align: center;">Aktivitas</th>
+                                    <th style="text-align: center;">Target Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>   
+                                <tr>
+                                    <td style="padding: 12px; color: #555;">2024-06-01 10:15:30</td>
+                                    <td style="padding: 12px; color: #555;">Kafi Diandra Mufid</td>
+                                    <td style="text-align: center; padding: 12px;">
+                                        <span style="background: #48CAE4; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Supervisor</span>
+                                    </td>
+                                    <td style="padding: 12px; color: #555;">Memverifikasi</td>
+                                    <td style="padding: 12px; color: #555; text-align: left;">DOC-001</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; color: #555;">2024-06-01 09:45:10</td>
+                                    <td style="padding: 12px; color: #555; text-align: left;">Vega Ricky</td>
+                                    <td style="text-align: center; padding: 12px;">
+                                        <span style="background: #6f42c1; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Staff</span>
+                                    </td>
+                                    <td style="padding: 12px; color: #555;">Menambahkan Nasabah Baru</td>
+                                    <td style="padding: 12px; color: #555; text-align: left;">ARS-00132</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; color: #555;">2024-05-31 16:20:45</td>
+                                    <td style="padding: 12px; color: #555;">Nuralam Sukmawijaya</td>
+                                    <td style="text-align: center; padding: 12px;">
+                                        <span style="background: #007bff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Administrator</span>
+                                    </td>
+                                    <td style="padding: 12px; color: #555;">Mengubah Hak Akses</td>
+                                    <td style="padding: 12px; color: #555; text-align: left;">Vega Ricky</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; color: #555;">2024-05-31 14:05:22</td>
+                                    <td style="padding: 12px; color: #555;">M Daffa Fauzan</td>
+                                    <td style="text-align: center; padding: 12px;">
+                                        <span style="background: #007bff; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Administrator</span>
+                                    </td>
+                                    <td style="padding: 12px; color: #555;">Mengubah Hak Akses</td>
+                                    <td style="padding: 12px; color: #555; text-align: left;">Kafi Diandra Mufid</td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+<div id="messageModal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2 id="modalSender">Detail Pesan</h2>
+            <button class="close-modal" id="closeModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="sender-meta">
+                <span id="modalTime" class="time-stamp"></span>
+            </div>
+            <p id="modalBody" class="message-content"></p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-reply">Balas Pesan</button>
+        </div>
+    </div>
+</div>
+<div id="writeMessageModal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2 id="writeModalTitle">Tulis Pesan Baru</h2>
+            <button class="close-modal" id="closeWriteModal">&times;</button>
+        </div>
+        <form id="messageForm">
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Kepada:</label>
+                    <input type="text" id="msgTo" placeholder="Nama penerima..." required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-family: 'Kodchasan';">
+                </div>
+                <div class="form-group">
+                    <label>Isi Pesan:</label>
+                    <textarea id="msgText" rows="5" placeholder="Ketik pesan Anda di sini..." required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-family: 'Kodchasan'; resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="submit-btn" style="padding: 10px 25px;">
+                    <i class="fas fa-paper-plane"></i> Kirim
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+            <script src="js/menu.js"></script>
+            <script src="js/no-rek.js"></script>
+            <script src="js/nama-lengkap.js"></script>
+            <script src="js/permission-reset-save.js"></script>
+            <script src="js/dashboard.js"></script>
+</body>
+</html>

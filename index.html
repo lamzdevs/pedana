@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedana Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <!-- Login Area -->
+    <div class="login-page-container">
+        <div class="login-card">
+            <div class="login-illustration-side">
+                <img src="img/arsip-recycle.png" alt="gambar-arsip-recycle"/>
+            </div>
+            <div class="login-form-side">
+                <div class="logo-area">
+                    <img src="logo/LOGO PENADA_FIX_UTAMA_GELAP.png" alt="Logo Penada"> 
+                </div>
+                <h1>Masuk</h1>
+                <form id="loginForm" action="dashboard.html">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Nama Pengguna" required/>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Sandi" required/>
+                        <i class="far fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                    <button type="submit" class="login-btn">Masuk</button>
+                </form>
+                <div class="extra-links">
+                    <p>Belum memiliki akun?</p>
+                    <a href="register.html" id="register-link">Daftar sebagai Administrator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

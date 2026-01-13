@@ -165,110 +165,6 @@
         </div>
 
             <section id="content-area">
-                <!-- Lihat Pesan -->
-                <div id="allMessagesSection" class="content-section">
-                    <div class="header-row">
-                        <h1>Kotak Masuk Pesan</h1>
-                        <button class="btn-write-new">
-                            <i class="fas fa-plus-circle"></i> Tulis Pesan
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <table class="customer-list-table">
-                            <thead>
-                                <tr>
-                                    <th style="text-align: center;">Status</th>
-                                    <th>Pengirim</th>
-                                    <th>Pesan</th>
-                                    <th style="text-align: center;">Waktu</th>
-                                    <th style="text-align: center;">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="text-align: center;"><i class="fas fa-envelope-open-text" style="color: var(--marian-blue);"></i></td>
-                                    <td><strong>Supervisor Kafi</strong></td>
-                                    <td>Mohon cek dokumen nasabah ARS-001...</td>
-                                    <td style="text-align: center;">2 menit lalu</td>
-                                    <td style="text-align: center;">
-                                        <button class="action-btn" onclick="openMsg('Supervisor Kafi', '2 menit lalu', 'Mohon cek dokumen nasabah ARS-001 segera.')">Buka</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;"><i class="fas fa-envelope" style="color: gray;"></i></td>
-                                    <td><strong>Staf Vega</strong></td>
-                                    <td>Input data nasabah baru sudah selesai.</td>
-                                    <td style="text-align: center;">1 jam lalu</td>
-                                    <td style="text-align: center;">
-                                        <button class="action-btn" onclick="openMsg('Staf Vega', '1 jam lalu', 'Input data nasabah baru untuk wilayah Bogor sudah masuk sistem.')">Buka</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Lihat Notifikasi -->
-                <div id="allNotificationsSection" class="content-section">
-                    <div class="header-row" style="margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
-                        <h1>Semua Notifikasi</h1>
-                        <button class="btn-write-new" onclick="alert('Notifikasi berhasil ditandai telah dibaca')">
-                            <i class="fas fa-check-double"></i> Tandai Semua Dibaca
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <table class="customer-list-table">
-                            <thead>
-                                <tr>
-                                    <th style="text-align: center; width: 50px;">Tipe</th>
-                                    <th>Notifikasi</th>
-                                    <th style="text-align: center;">Waktu</th>
-                                    <th style="text-align: center;">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="unread-row" style="background-color: #f0f7ff;">
-                                    <td style="text-align: center;"><i class="fas fa-circle-exclamation" style="color: var(--status-inactive);"></i></td>
-                                    <td><strong>Urgent:</strong> 2 Dokumen nasabah ARS-001 perlu revisi segera!</td>
-                                    <td style="text-align: center;">Baru saja</td>
-                                    <td style="text-align: center;">
-                                        <button class="action-btn" onclick="openNotif('Sistem Keamanan', 'Baru saja', 'Terdapat ketidaksesuaian data pada scan KTP nasabah Budi Santoso. Segera lakukan verifikasi ulang.')">Detail</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;"><i class="fas fa-check-circle" style="color: var(--status-active);"></i></td>
-                                    <td>Verifikasi akun administrator Nuralam berhasil dilakukan.</td>
-                                    <td style="text-align: center;">5 jam lalu</td>
-                                    <td style="text-align: center;">
-                                        <button class="action-btn" onclick="openNotif('Sistem Verifikasi', '5 jam lalu', 'Permintaan akses administrator untuk user Nuralam telah disetujui oleh sistem.')">Detail</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div id="notifModal" class="modal-overlay">
-                    <div class="modal-card">
-                        <div class="modal-header">
-                            <h2>Detail Notifikasi</h2>
-                            <button class="close-modal" id="closeNotifModal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="sender-meta">
-                                <strong id="notifSource" style="color: var(--marian-blue);"></strong>
-                                <span id="notifTime" class="time-stamp"></span>
-                            </div>
-                            <p id="notifBody" class="message-content" style="margin-top: 15px;"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="submit-btn" onclick="document.getElementById('notifModal').style.display='none'">Tutup</button>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Daftar Nasabah -->
                 <div id="nasabahList" class="content-section">
                     <h1>Daftar Nasabah</h1>
@@ -1377,5 +1273,6 @@
             <script src="js/dashboard.js"></script>
 </body>
 </html>
+
 
 

@@ -36,13 +36,5 @@ if (togglePassword && passwordInput) {
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    if (username === 'Nuralam' && password === 'pedana123') {
-        alert('Login Berhasil! Selamat datang di Pedana!');
-        window.location.href = 'dashboard.html'; 
-    } else {
         alert('Username atau Password salah. Silakan coba lagi.');
-    }
 }); // Memvalidasi username dan password

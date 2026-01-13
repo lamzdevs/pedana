@@ -1,0 +1,42 @@
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
+
+if (togglePassword && passwordInput) {
+    togglePassword.addEventListener('mousedown', function(event) {
+        event.preventDefault(); 
+    }); // Mencegah input password kehilangan fokus saat ikon diklik
+
+    togglePassword.addEventListener('click', function() {
+        const caretPosition = passwordInput.selectionStart;
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type); // Menampilkan password
+
+        setTimeout(() => {
+        passwordInput.selectionStart = caretPosition;
+        passwordInput.selectionEnd = caretPosition;
+        passwordInput.focus(); 
+        }, 0); // Memposisikan caret
+
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash'); // Mengubah ikon mata
+    });
+
+    passwordInput.addEventListener('blur', function() {
+        if (this.getAttribute('type') === 'text') {
+            
+            this.setAttribute('type', 'password');
+
+            if (togglePassword.classList.contains('fa-eye-slash')) {
+                togglePassword.classList.remove('fa-eye-slash');
+                togglePassword.classList.add('fa-eye');
+            }
+        }
+    }); // Menyembunyikan password saat sudah diisi
+}
+
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    alert('Registrasi Administrator Berhasil! Silakan masuk dengan akun Anda.');
+    
+    window.location.href = 'index.html';
+}); // Mengembalikan ke halaman login setelah registrasi berhasil

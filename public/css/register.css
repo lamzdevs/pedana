@@ -1,0 +1,186 @@
+/* General & Body Styling */
+:root {
+    --marian-blue: #023E8A;
+    --honolulu-blue: #0077B6;
+    --blue-green: #0096C7;
+    --vivid-sky-blue: #48CAE4;
+    --lavender-blush: #EEE5E9;
+    --dark: #333333;
+    --light: #f0f0f0;
+    --status-pending: #ffc107;
+    --status-active: #28a745;
+    --status-on-sale: #007bff;
+    --status-inactive: #dc3545;
+    --status-bouncing: #6f42c1;
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kodchasan", Roboto, Arial, sans-serif;
+}
+
+body {
+    font-weight: 500;
+    background-color: var(--lavender-blush);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container Styling */
+.register-page-container {
+    width: 90%;
+    max-width: 950px;
+    padding: 20px;
+}
+
+/* Card Register Styling */
+.register-card {
+    display: flex;
+    background-color: var(--light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+/* Left Side Styling */
+.register-illustration-side {
+    flex: 1;
+    background-color: var(--light);
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-illustration-side img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Right Side Styling */
+.register-form-side {
+    flex: 1;
+    background-color: var(--lavender-blush);
+    padding: 50px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-area img {
+    width: 200px;
+    z-index: 99;
+    margin: 0 auto 0 auto;
+    display: block;
+}
+
+.register-form-side h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+/* Input Group Styling */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 45px;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    color: var(--marian-blue);
+}
+
+.input-group input:focus {
+    border-color: var(--marian-blue);
+    outline: none;
+}
+
+.input-group i:first-child {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark);
+    font-size: 14px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark);
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s, opacity 0.3s;
+    opacity: 0;
+    pointer-events: auto;
+}
+
+.toggle-password:hover {
+    color: var(--marian-blue);
+}
+
+#password:focus + .toggle-password {
+    opacity: 1;
+}
+
+/* register Button Styling*/
+.register-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    background-color: var(--marian-blue);
+    color: var(--light);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background-color: var(--honolulu-blue);
+}
+
+/* Extra Links Styling */
+.extra-links {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.extra-links p {
+    color: var(--dark);
+    opacity: 80%;
+    margin-bottom: 5px;
+}
+
+#register-link {
+    color: var(--marian-blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+#register-link:hover {
+    color: var(--honolulu-blue);
+    text-decoration: none;
+}
